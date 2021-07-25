@@ -19,7 +19,7 @@ module "vpc" {
   version = "3.2.0"
 
   database_subnet_assign_ipv6_address_on_creation    = false
-  database_subnet_group_name                         = []
+  database_subnet_group_name                         = ""
   default_security_group_egress                      = []
   default_security_group_ingress                     = []
   elasticache_subnet_assign_ipv6_address_on_creation = false
@@ -82,8 +82,8 @@ resource "aws_instance" "ubuntu" {
   count         = 1
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  subnet_id = vpc.private_subnets[0]
-  
+  subnet_id     = module.vpc.private_subnets[0]
+
 
   tags = {
     Name = "${var.instance_name}-${count.index}"
