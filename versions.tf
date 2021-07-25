@@ -13,9 +13,9 @@ terraform {
 
   required_version = ">= 1.0.3"
 
-   backend "remote" {
-    hostname      = "app.terraform.io"
-    organization  = "vinnielee-io"
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "vinnielee-io"
 
     workspaces {
       name = "online-services-eks-deploy"
