@@ -3,7 +3,6 @@ module "eks" {
   source                       = "terraform-aws-modules/eks/aws"
   version                      = "17.1.0"
   cluster_name                 = local.cluster_name
-  wait_for_cluster_interpreter = ["/bin/bash", "-c"]
   cluster_version              = "1.20"
   subnets                      = module.vpc.private_subnets
 
