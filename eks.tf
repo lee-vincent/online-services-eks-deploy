@@ -1,10 +1,11 @@
 
 module "eks" {
-  source                       = "terraform-aws-modules/eks/aws"
-  version                      = "17.1.0"
-  cluster_name                 = local.cluster_name
-  cluster_version              = "1.20"
-  subnets                      = module.vpc.private_subnets
+  source           = "terraform-aws-modules/eks/aws"
+  version          = "17.1.0"
+  cluster_name     = local.cluster_name
+  cluster_version  = "1.20"
+  subnets          = module.vpc.private_subnets
+  write_kubeconfig = false
 
   cluster_service_ipv4_cidr = "192.168.0.0/16"
   enable_irsa               = false
