@@ -1,3 +1,6 @@
+# Do not commit a terraform.tfvars file
+# Set terraform variables in the terraform cloud ui
+
 variable "region" {
   description = "AWS region"
   default     = "us-east-1"
